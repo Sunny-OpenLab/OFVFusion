@@ -16,8 +16,8 @@ Infrared and visible video fusion aims to generate fused sequences that simultan
 The framework of the proposed dual-weight supervision strategy at the feature level and cross-weight strategy.  
 
 ## 🌻Network Architecture
-<img src="Figure/DWSFusion.png" alt="DWSFusion">
-The architecture of the DWSFusion. 
+<img src="Figure/Figure_2.pdf" alt="Figure_2">
+The architecture of the OFVFusion. 
 
 ## 🪄Code Usage
 ### Environment
