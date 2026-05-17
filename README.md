@@ -34,7 +34,6 @@ Qualitative comparison of DWSFusion with 13 state-of-the-art methods from the TN
 <img src="Figures/Figure_3.png" alt="Figure_3">
 <img src="Figures/Figure_4.png" alt="Figure_4">
 <img src="Figures/Figure_5.png" alt="Figure_5">
-<img src="Figures/Figure_6.png" alt="Figure_6">
 
 ## 🧷If this work is helpful to you, please cite it as：
 
