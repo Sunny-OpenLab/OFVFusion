@@ -12,7 +12,7 @@ Infrared and visible video fusion aims to generate fused sequences that simultan
 - OFVFusion achieves SOTA performance with superior computational efficiency.
 
 ## 🪢Framework
-<img src="Figure/Featurelevelsupervision.png" alt="Featurelevelsupervision">
+<img src="Figures/Featurelevelsupervision.png" alt="Featurelevelsupervision">
 The framework of the proposed dual-weight supervision strategy at the feature level and cross-weight strategy.  
 
 ## 🌻Network Architecture
