@@ -11,17 +11,15 @@ Infrared and visible video fusion aims to generate fused sequences that simultan
 - A learnable instance-adaptive loss balances thermal prominence and texture detail.
 - OFVFusion achieves SOTA performance with superior computational efficiency.
 
-## 🪢Framework
-<img src="Figures/Featurelevelsupervision.png" alt="Featurelevelsupervision">
-The framework of the proposed dual-weight supervision strategy at the feature level and cross-weight strategy.  
+## 🪢Comparison of static and dynamic perception paradigms
+<img src="Figures/Figure_1.png" alt="Figure_1">
+Comparison of static (top) and dynamic (bottom) perception paradigms. The static paradigm treats video sequences as isolated frames and neglects temporal correlations. Conversely, the dynamic paradigm mimics human vision by establishing temporal dependencies through continuous observation of the video stream.
 
 ## 🌻Network Architecture
 <img src="Figures/Figure_2.png" alt="Figure_2">
 The architecture of the OFVFusion. 
 
 ## 🪄Code Usage
-### Environment
-```pip install -r requirements```
 ### To Train
 Run ```python main.py``` to train your model. The training data is obtained by extracting patches from the images in the MSRS dataset.
 For convenient training, users can download the training dataset from [here](https://pan.baidu.com/s/16qbgI3HK7Y45H0GwZkc8vQ?pwd=Qi42), in which the extraction code is: Qi42.
@@ -30,24 +28,13 @@ Put this tar file into folder data.
 Run ```python test.py``` to test the model.  
 M3FD dataset can be downloaded from [M3FD](https://pan.baidu.com/s/1SbqLk2YSAYr_1NKVCIeNsQ?pwd=Qi42), in which the extraction code is: Qi42.  
 Put this tar file into folder data/test_data.
-### Recommended Environment
-- torch==1.11.0+cu113
-- torchvision==0.12.0+cu113
-- numpy==1.26.4
-- opencv-python==4.10.0.84
-- mmcv-full==1.5.3
 
 ## 📌Fusion Example
 Qualitative comparison of DWSFusion with 13 state-of-the-art methods from the TNO, RoadScene, MSRS and M3FD datasets.
-![Visualcomparisons.png](Figure%2FVisualcomparisons.png)
-
-## 📌Detection Results
-Detection results for infrared, visible and fused images from the MSRS dataset. The segmentation model is YOLOv5s.  
-![od.png](Figure%2Fod.png)
-
-## 📌Segmentation Results
-Segmentation results for infrared, visible and fused images from the MSRS dataset. The segmentation model is Deeplabv3+, pre-trained on the Cityscapes dataset.
-![ss.png](Figure%2Fss.png)
+<img src="Figures/Figure_3.png" alt="Figure_3">
+<img src="Figures/Figure_4.png" alt="Figure_4">
+<img src="Figures/Figure_5.png" alt="Figure_5">
+<img src="Figures/Figure_6.png" alt="Figure_6">
 
 ## 🧷If this work is helpful to you, please cite it as：
 
