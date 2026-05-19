@@ -1,13 +1,3 @@
-# -*-coding:utf-8 -*-
-
-"""
-# File       : train.py
-# Time       ：2025/4/14 10:49
-# Author     ：Qiang42
-# version    ：python 3.8
-# Description：
-"""
-
 import torch
 from tqdm import tqdm
 from collections import OrderedDict
@@ -16,7 +6,7 @@ from collections import OrderedDict
 def train(args, model, train_loader, criterion, optimizer, scheduler, device, epoch, scaler=None):
     model.train()
     running_loss = 0
-    use_amp = args.float16   # 是否使用混合精度
+    use_amp = args.float16 
 
     train_tqdm = tqdm(train_loader, total=len(train_loader), desc="Train", leave=False, delay=1)
 
@@ -29,7 +19,6 @@ def train(args, model, train_loader, criterion, optimizer, scheduler, device, ep
         optimizer.zero_grad(set_to_none=True)
 
         if use_amp:
-            # FP16 混合精度
             with torch.autocast(device_type='cuda', dtype=torch.float16):
                 fused_output, *_ = model(VS_ir, VS_vi_y, flow_ir, flow_vi)
                 total_loss, loss_pixel, loss_grad, loss_ssim, loss_temp = criterion(
@@ -43,7 +32,6 @@ def train(args, model, train_loader, criterion, optimizer, scheduler, device, ep
             scaler.update()
 
         else:
-            # FP32
             fused_output, *_ = model(VS_ir, VS_vi_y, flow_ir, flow_vi)
             total_loss, loss_pixel, loss_grad, loss_ssim, loss_temp = criterion(
                 fused_output[:,1:], VS_ir[:,1:], VS_vi_y[:,1:], flow_vi
