@@ -1,12 +1,3 @@
-# -*-coding:utf-8 -*-
-
-"""
-# File       : val.py
-# Time       ：2025/4/14 10:49
-# Author     ：Qiang42
-# version    ：python 3.8
-# Description：
-"""
 import torch
 from tqdm import tqdm
 from collections import OrderedDict
