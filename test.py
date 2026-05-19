@@ -28,8 +28,6 @@ def test(args, model, device):
         model.eval()
 
         test_tqdm = tqdm(test_loader, total=len(test_loader), leave=False)
-        elapsed_time_list = []
-
         with torch.no_grad():
             for i, (VS_vi, VS_vi_y, VS_cr, VS_cb, VS_ir, flow_ir, flow_vi, name) in enumerate(test_tqdm):
                 VS_vi_y = VS_vi_y.to(device)
@@ -40,17 +38,9 @@ def test(args, model, device):
                 flow_vi = flow_vi.to(device)
                 if use_amp:
                     with torch.autocast(device_type='cuda', dtype=torch.float16):
-                        start_time = time.time()
                         fused_output, *_ = model(VS_ir, VS_vi_y, flow_ir, flow_vi)
-                        end_time = time.time()
-                        elapsed_time = end_time - start_time
-                        elapsed_time_list.append(elapsed_time)
                 else:
-                    start_time = time.time()
                     fused_output, *_ = model(VS_ir, VS_vi_y, flow_ir, flow_vi)
-                    end_time = time.time()
-                    elapsed_time = end_time - start_time
-                    elapsed_time_list.append(elapsed_time)
 
                 rgb_fused_image = utils.Y_Cr_Cb2RGB(fused_output[0, -1, 0, :, :], VS_cr[0, -1, 0, :, :],
                                                     VS_cb[0, -1, 0, :, :])
@@ -69,8 +59,6 @@ def test_VS(args, model, test_loader, device):
     )
     model.eval()
     model.to(device)
-
-    elapsed_time_list = []
 
     with torch.no_grad():
         test_tqdm = tqdm(test_loader, total=len(test_loader),
